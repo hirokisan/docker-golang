@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  golang-workspace:
+    container_name: golang-workspace
+    build: ./workspace #dir
+    volumes:
+      - "./app:/home/golang/app"
+    ports:
+      - "10080:22"
+    tty: true #keep container up
+    privileged: true
