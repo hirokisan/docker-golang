@@ -37,6 +37,9 @@ RUN yum install -y gcc gcc-c++ kernel-devel make pcre pcre-devel xz-devel bzip2
 # Install essentail tools for git
 RUN yum install -y curl-devel expat-devel gettext-devel openssl-devel perl-devel zlib-devel
 
+# Install additional tools for golang
+RUN yum install -y bison glibc-devel
+
 # Install other tools
 RUN yum install -y automake libevent libevent-devel ncurses ncurses-devel
 
@@ -104,6 +107,15 @@ USER root
 
 ##########################
 
+#### Install gvm ####
+
+USER $user
+RUN ["/bin/bash", "-c", "bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)"]
+RUN ["/bin/bash", "-c", "source ~/.gvm/scripts/gvm"]
+USER root
+
+#######################
+
 #### Install redis ####
 
 #USER $user
@@ -139,6 +151,7 @@ USER root
 #COPY ./nginx/ssl.sh /etc/nginx/ssl.sh
 #COPY ./mysql/my.cnf /etc/my.cnf
 #COPY ./mariadb/my.cnf.d/server.cnf /etc/my.cnf.d/server.cnf
+COPY .zshrc /home/$user/.zshrc
 
 ########################
 
