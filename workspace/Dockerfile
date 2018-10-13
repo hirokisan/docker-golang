@@ -32,7 +32,7 @@ RUN yum install -y vim zsh git curl wget deltarpm rubygems python-devel
 #RUN yum install -y libX11 GConf2 fontconfig unzip
 
 # Install build essential tools
-RUN yum install -y gcc gcc-c++ kernel-devel make pcre pcre-devel xz-devel bzip2
+RUN yum install -y gcc gcc-c++ kernel-devel make pcre pcre-devel xz-devel bzip2 lua lua-devel
 
 # Install essentail tools for git
 RUN yum install -y curl-devel expat-devel gettext-devel openssl-devel perl-devel zlib-devel
