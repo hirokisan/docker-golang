@@ -9,7 +9,14 @@ compinit
 
 #allow tab completion in the middle of a word
 setopt COMPLETE_IN_WORD
+
+# gvm
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+
+# goenv
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+eval "$(goenv init -)"
 
 ## keep background processes at full speed
 #setopt NOBGNICE

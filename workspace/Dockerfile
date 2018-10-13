@@ -111,7 +111,14 @@ USER root
 
 USER $user
 RUN ["/bin/bash", "-c", "bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)"]
-RUN ["/bin/bash", "-c", "source ~/.gvm/scripts/gvm"]
+USER root
+
+#######################
+
+#### Install goenv ####
+
+USER $user
+RUN git clone https://github.com/syndbg/goenv.git ~/.goenv
 USER root
 
 #######################
