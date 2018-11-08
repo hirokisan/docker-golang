@@ -6,7 +6,9 @@ services:
     build: ./workspace #dir
     volumes:
       - "./app:/home/golang/app"
+      - "./go:/home/golang/go"
     ports:
       - "10080:22"
+      - "8080:8080"
     tty: true #keep container up
     privileged: true
